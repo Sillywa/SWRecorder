@@ -14,10 +14,13 @@ swrecorder.get(function(rec) {
     recorder.start()
 })
 ```
+
 方法二：
+
 1. 下载本仓库的 `index.js` 文件
 2. 在项目中引用该 `js` 文件
 3. 开始使用
+
 ```
 var recorder
 swrecorder.get(function(rec) {

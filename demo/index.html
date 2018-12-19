@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            height: 40px;
+            width: 80px;
+            border-radius: 20px;
+            background: #215798;
+            color: #fff;
+            border: none;
+            outline: 0;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div><audio controls autoplay></audio></div> 
+    <input onclick="startRecording()" type="button" value="录音" />
+    <input onclick="stopRecording()" type="button" value="停止" />
+    <input onclick="playRecording()" type="button" value="播放" />
+<!--     <input onclick="uploadAudio()" type="button" value="提交" /> -->
+
+
+    <script src="../index.js"></script>
+    <script>
+        var recorder
+        
+        startRecording = function () {
+            swrecorder.get(function(rec) {
+                recorder = rec
+                recorder.start()
+            })
+        }
+        stopRecording = function() {
+            recorder.stop()
+        }
+        playRecording = function() {
+            recorder.play(document.querySelector("audio"))
+        }
+        // uploadAudio = function() {
+        //     recorder.upload(url, function(state,e) {
+        //         console.log(e,state)
+        //     })
+        // }
+    </script>
+
+</body>
+</html>
