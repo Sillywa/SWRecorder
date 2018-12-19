@@ -2,6 +2,7 @@
 音频输出为 `wav` 文件。
 
 ## 快速开始
+方法一：
 ```
 npm install swrecorder --save
 ```
@@ -13,7 +14,17 @@ swrecorder.get(function(rec) {
     recorder.start()
 })
 ```
-
+方法二：
+1. 下载本仓库的 `index.js` 文件
+2. 在项目中引用该 `js` 文件
+3. 开始使用
+```
+var recorder
+swrecorder.get(function(rec) {
+    recorder = rec
+    recorder.start()
+})
+```
 **重要说明：必须通过调用 `swrecorder.get()` 方法，然后在回调函数里返回录音实例 `recorder`。所有方法都是挂在于 `recorder` 之上。**
 
 ## API 参考
@@ -23,6 +34,7 @@ swrecorder.get(function(rec) {
 
 `config` 配置音频参数：
 > `sampleBits`: 采样位数（8或者16），默认为16位，
+>
 > `sampleRate`: 采样率（8000或16000），默认为16000
 
 2. `recorder.start()`

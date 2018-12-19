@@ -1,17 +1,5 @@
-(function (global, name, factory) {
-    "use strict";
-
-    if (typeof exports === 'object' && typeof module !== 'undefined') {
-        module.exports = factory();
-    } else if (typeof define === 'function' && (define.amd || define.cmd)) {
-        define(factory);
-    } else {
-        global[name] = factory.apply(this);
-    }
-}(this, "swrecorder", function () {
-    // 逻辑编写
-     //兼容
-    window.URL = window.URL || window.webkitURL;
+(function (window) {
+    window.URL = window.URL || window.webkitURL;
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
     var SWRecorder = function (stream, config) {
@@ -221,7 +209,8 @@
             }
         }
     }
-
-    return SWRecorder
-   
-}));
+    
+        window.swrecorder = SWRecorder;
+    
+    
+    })(window);
